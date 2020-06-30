@@ -1,22 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>How to use font awesome in Laravel? - ItSolutionStuff.com</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
-    <style type="text/css">
-        i{
-            font-size: 50px !important;
-            padding: 10px;
-        }
-    </style>
-</head>
-<body>
-  
-<h1>How to use font awesome in Laravel? - ItSolutionStuff.com</h1>
-   
-<i class="fa fa-copy"></i>
-<i class="fa fa-save"></i>
-<i class="fa fa-trash"></i>
-<i class="fa fa-home"></i>
-  
+@extends('layouts.admin')
+
+
+
+
+@section('content')
+    <h1>Users</h1>
+
+    {{-- table of users --}}
+
+
+    <table class="table table-hover table-primary text-center mt-4 ">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            @foreach ($users as $user)
+                <tr>
+                    <td>{{$user->id}} </td>
+                    <td>{{$user->name}} </td>
+                    <td> {{$user->email}}</td>
+                    <td> {{$user->Role->name}} </td>
+
+                </tr>
+            @endforeach
+       
+
+    
+        </tbody>
+      </table>
+@endsection
