@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Role;
+use App\Photo;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class AdminUsersController extends Controller
 {
     /**
@@ -25,7 +27,8 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        //
+
+       return  view('admin.users.create');
     }
 
     /**
@@ -36,7 +39,38 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'name' => 'required|min:5',
+            'email' => 'required',
+            'password' => 'required|min:8',
+            'is_active' => 'required'
+        ]);  
+        
+
+         $input = $request->all();
+
+        if ($file = $request->file('photo_id')) {
+            
+           $name  = time() .$file->getClientOriginalName();
+
+           $file->move('images' ,$name);
+
+            $photo = Photo::create(['path' => $name]);
+
+            $input['photo_id'] = $photo->id;
+
+        }
+
+      
+        $input['password'] = bcrypt($input['password']); 
+
+
+
+        User::create($input);
+
+        return  redirect('admin/users');
+
     }
 
     /**

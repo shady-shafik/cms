@@ -1,11 +1,3 @@
-{{-- @extends('layouts.admin')
-
-
-
-@section('content')
-    <h1>users</h1>
-@endsection --}}
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,8 +11,7 @@
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
   </head>
   <body>
-		
-    <div class="wrapper d-flex align-items-stretch">
+    <div class="wrapper d-flex align-items-stretch sidebar">
         <nav id="sidebar">
             <div class="custom-menu">
                 <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -37,11 +28,12 @@
           <a href="#"><span class="fa fa-user mr-3"></span> Dashboard</a>
       </li>
       <li>
-        <a href="#"><span class="fa fa-sticky-note mr-3"></span> Friends</a>
+        <a href="{{route('users.index')}} "><span class="fa fa-sticky-note mr-3"></span> Users</a>
       </li>
       <li>
-        <a href="#"><span class="fa fa-sticky-note mr-3"></span> Subcription</a>
+        <a href="{{route('users.create')}}"><span class="fa fa-sticky-note mr-3"></span> create user</a>
       </li>
+      
       <li>
         <a href="#"><span class="fa fa-paper-plane mr-3"></span> Settings</a>
       </li>
@@ -51,32 +43,30 @@
     </ul>
 
     </nav>
+    <div id="content" class="p-4 p-md-5 pt-5">
+          <div id="page-wrapper">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <h1 class="page-header"></h1>
 
-    <!-- Page Content  -->
-  <div id="content" class="p-4 p-md-5 pt-5">
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header"></h1>
-
-                    @yield('content')
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+                          @yield('content')
+                      </div>
+                      <!-- /.col-lg-12 -->
+                  </div>
+                  <!-- /.row -->
+              </div>
         </div>
     </div>
-  </div>
+    <!-- Page Content  -->
+    @yield('footer')        
 
+    </div>
 
 
 <!-- jQuery -->
 {{-- <script src="{{asset('js/app.js')}}"></script> --}}
-@yield('footer')
-    </div>
-        
-  
+
     
 
   
