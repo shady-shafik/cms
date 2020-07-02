@@ -15,6 +15,7 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Photo</th>
             <th scope="col">Role</th>
             <th scope="col">status</th>
           </tr>
@@ -28,8 +29,10 @@
                     <td>{{$user->id}} </td>
                     <td>{{$user->name}} </td>
                     <td> {{$user->email}}</td>
+                    <td> <img  height="50" width="50" src="/images/{{$user->photo ? $user->photo->path : 'avarar.png' }}" alt="no photo"> </td>
                     <td> {{$user->Role->name}} </td>
                     <td>{{$user->is_active === 1 ? 'Active': 'Inactive'}} </td>
+                    <td><a href="{{route('users.edit' , $user)}}">Edit</a></td>
                 </tr>
             @endforeach
        

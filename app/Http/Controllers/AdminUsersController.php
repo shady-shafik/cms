@@ -5,7 +5,6 @@ use App\User;
 use App\Role;
 use App\Photo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 class AdminUsersController extends Controller
 {
     /**
@@ -92,7 +91,9 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('admin.users.edit' , compact('user'));
     }
 
     /**
@@ -104,7 +105,45 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:5',
+            'email' => 'required',
+            'password' => 'required|min:8',
+            'is_active' => 'required'
+        ]);  
+         
+        $user = User::findOrFail($id);
+        $update = $request->all();
+
+            //extract not required element
+            ! $request['photo_id'] 
+            ? 
+             $update = collect($update)->except(['_method' , 'photo_id'])->toArray() 
+            :
+             $update = collect($update)->except(['_method'])->toArray();
+
+
+        if( $file = $request->file('photo_id')){
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images' , $name);
+
+            //check if there is a photo or not
+            
+                $photo = Photo::create(['path' => $name]);
+
+                $update['photo_id'] = $photo->id; 
+
+        }
+
+        //encrypt password
+        $update['password'] = bcrypt($update['password']); 
+
+        //update data
+        $user->update($update);
+        
+        return  redirect('admin/users');
     }
 
     /**
