@@ -5,7 +5,7 @@
 // @import 'variables';
 
 // // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
 
 // @import '~@fortawesome/fontawesome-free/scss/fontawesome';
@@ -15,4 +15,9 @@
 
 #admin-page{
     padding-top: 0;
+}
+
+
+input[type=text],input[type=select],input[type=password]{
+    border-color: lightskyblue;
 }

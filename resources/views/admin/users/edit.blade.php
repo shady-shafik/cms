@@ -15,6 +15,15 @@
             src="/images/{{$user->photo ? $user->photo->path :'avarar.png'}}"
             class="rounded"
             >
+
+            <form class="mt-5" method='POST'  action=" {{route('users.destroy' , $user->id)}} ">
+                {{ csrf_field() }}
+                @method('DELETE')
+
+                <div class="form-group">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </div>
+        </form>
     </div>
 
     {{-- @endif --}}
@@ -71,11 +80,14 @@
         </div>
 
         <div class="form-group">
-            {!! Form::submit('create',['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Update',['class' => 'btn btn-primary']) !!}
         </div>
         {!! Form::close() !!}
-
+        
+    
     </div>
+
+ 
 </div>
 @endsection
 

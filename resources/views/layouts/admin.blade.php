@@ -22,7 +22,7 @@
           <h1><a href="index.html" class="logo">Admin</a></h1>
     <ul class="list-unstyled components mb-5">
       <li class="active">
-        <a href="#"><span class="fa fa-home mr-3"></span> Homepage</a>
+        <a href="{{route('home')}} "><span class="fa fa-home mr-3"></span> Homepage</a>
       </li>
       <li>
           <a href="#"><span class="fa fa-user mr-3"></span> Dashboard</a>
@@ -35,7 +35,10 @@
       </li>
       
       <li>
-        <a href="#"><span class="fa fa-paper-plane mr-3"></span> Settings</a>
+        <a href="{{route('posts.index')}} "><span class="fa fa-paper-plane mr-3"></span> Posts</a>
+      </li>
+      <li>
+        <a href="{{route('posts.create')}} "><span class="fa fa-paper-plane mr-3"></span> Create post </a>
       </li>
       <li>
         <a href="#"><span class="fa fa-paper-plane mr-3"></span> Information</a>

@@ -1,9 +1,10 @@
 @extends('layouts.admin')
 
 
-
-
 @section('content')
+@if (Session::get('deleted') )
+    <p class="alert alert-success">{{ Session::get('deleted') }} </p>
+@endif
     <h1>Users</h1>
 
     {{-- table of users --}}

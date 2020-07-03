@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Role;
 use App\Photo;
+use Session;
 use Illuminate\Http\Request;
 class AdminUsersController extends Controller
 {
@@ -18,7 +19,6 @@ class AdminUsersController extends Controller
 
         return view('admin.users.index' , compact('users'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -152,8 +152,20 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request , $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if( $user->photo ){
+
+            unlink(public_path() . "/images/" . $user->photo->path);
+        }
+
+        $user->delete();
+
+        $request->session()->flash('deleted', 'user has been deleted');
+
+        return redirect('admin/users');
+
     }
 }
