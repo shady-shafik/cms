@@ -36,13 +36,13 @@
         @enderror
     </div>
 
-
-    
     <div class="form-group">
-        {!! Form::label('photo_id' , ' photo :') !!}
-        {!! Form::file('photo_id', null , ['class' =>' w-75']) !!}
-    </div>
-
+        <label for="photo_id">Photo</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="photo_id" >
+            <label class="custom-file-label border border-primary w-75" for="photo_id">Choose file...</label>
+        </div>
+    </div>    
 
     <div class="form-group">
         {!! Form::label('role_id' , ' Role :') !!}

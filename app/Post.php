@@ -12,7 +12,7 @@ class Post extends Model
         'body',
         'photo_id',
         'user_id',
-        'category_id'
+        'category_id',
     ];
 
     public function user(){
@@ -23,4 +23,7 @@ class Post extends Model
         return $this->belongsTo(Photo::class);
     }
 
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
