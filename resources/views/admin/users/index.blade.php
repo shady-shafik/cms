@@ -10,7 +10,7 @@
     {{-- table of users --}}
 
 
-    <table class="table table-hover table-primary text-center mt-4  ">
+    <table class="table table-hover table-bordered text-center mt-4  ">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -30,7 +30,7 @@
                     <td>{{$user->id}} </td>
                     <td>{{$user->name}} </td>
                     <td> {{$user->email}}</td>
-                    <td> <img  height="50" width="50" src="/images/{{$user->photo ? $user->photo->path : 'avarar.png' }}" alt="no photo"> </td>
+                    <td> <img  height="50" width="50" src="/images/{{$user->photo ? $user->photo->path : 'avarar.png' }}"> </td>
                     <td> {{$user->Role->name}} </td>
                     <td>{{$user->is_active === 1 ? 'Active': 'Inactive'}} </td>
                     <td><a href="{{route('users.edit' , $user)}}">Edit</a></td>

@@ -3,7 +3,12 @@
 
 @section('content')
 
-<table class="table table-hover table-primary text-center mt-4  ">
+@if (Session::get('deleted'))
+    <p class="alert alert-success"> {{Session::get('deleted')}}    </p>
+@endif
+
+<h1>Posts</h1>
+<table class="table table-hover table-bordered text-center mt-4  ">
     <thead>
       <tr>
         <th scope="col">Id</th>

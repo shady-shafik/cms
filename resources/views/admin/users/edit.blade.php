@@ -16,14 +16,16 @@
             class="rounded"
             >
 
-            <form class="mt-5" method='POST'  action=" {{route('users.destroy' , $user->id)}} ">
-                {{ csrf_field() }}
-                @method('DELETE')
+        {{-- delete user form  --}}
+        <form class="mt-5" method='POST'  action=" {{route('users.destroy' , $user->id)}} ">
+        {{ csrf_field() }}
+        @method('DELETE')
+            <div class="form-group">
+            <input class="btn btn-danger" type="submit" value="Delete">
+            </div>
 
-                <div class="form-group">
-                    <input class="btn btn-danger" type="submit" value="Delete">
-                </div>
         </form>
+        {{-- delete user form ended --}}
     </div>
 
     {{-- @endif --}}
@@ -81,7 +83,10 @@
 
         <div class="form-group">
             {!! Form::submit('Update',['class' => 'btn btn-primary']) !!}
+
         </div>
+
+
         {!! Form::close() !!}
         
     

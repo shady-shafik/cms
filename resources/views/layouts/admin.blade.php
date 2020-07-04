@@ -25,7 +25,7 @@
         <a href="{{route('home')}} "><span class="fa fa-home mr-3"></span> Homepage</a>
       </li>
       <li>
-          <a href="#"><span class="fa fa-user mr-3"></span> Dashboard</a>
+          <a href="/admin"><span class="fa fa-user mr-3"></span> Dashboard</a>
       </li>
       <li>
         <a href="{{route('users.index')}} "><span class="fa fa-sticky-note mr-3"></span> Users</a>
@@ -41,7 +41,7 @@
         <a href="{{route('posts.create')}} "><span class="fa fa-paper-plane mr-3"></span> Create post </a>
       </li>
       <li>
-        <a href="#"><span class="fa fa-paper-plane mr-3"></span> Information</a>
+        <a href=" {{route('categories.index')}} "><span class="fa fa-paper-plane mr-3"></span> Categories</a>
       </li>
     </ul>
 
