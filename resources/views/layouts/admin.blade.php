@@ -43,6 +43,12 @@
       <li>
         <a href=" {{route('categories.index')}} "><span class="fa fa-paper-plane mr-3"></span> Categories</a>
       </li>
+      <li>
+        <a href=" {{route('comments.index')}} "><span class="fa fa-paper-plane mr-3"></span> Comments</a>
+      </li>
+      <li>
+        <a href=" {{route('replies.index')}} "><span class="fa fa-paper-plane mr-3"></span> Replies</a>
+      </li>
     </ul>
 
     </nav>

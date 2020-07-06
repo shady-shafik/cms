@@ -50,15 +50,26 @@ class User extends Authenticatable
 
 
     public function isAdmin(){
-        if($this->role->name == 'admin' && $this->is_active == 1){
-            return true;
-        }
 
+        if($this->role){
+            if($this->role->name == 'admin' && $this->is_active == 1){
+                return true;
+            }
+        }
         return false;
     }
 
 
     public function post(){
         return $this->hasMany(Post::class);
+    }
+
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function replies(){
+        return $this->hasMany(CommentReply::class);
     }
 }
