@@ -47,7 +47,7 @@
             @method('POST')
 
             <div class="form-group">
-                <input type="text" name="name" class="form-control border border-primary" placeholder="Create new category">
+                <input type="text" name="name" class="form-control border border-primary">
             </div>
             <div class="form-group">
                 <input type="submit" value="submit" class="btn btn-primary">
